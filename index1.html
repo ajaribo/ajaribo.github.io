@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>AJ Aribo</h1>
+<p> REST YOUR EYES</p>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				width: 50%;
+				height: auto;
+				background-color: red;
+				margin: 25;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<script src="http://threejsplaygnd.brangerbriz.net/js/three.min.js"></script>
+		<script src="http://threejsplaygnd.brangerbriz.net/js/Detector.js"></script>
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true } );
+	renderer.autoClearColor = false; THREE.WebGLRenderer();
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 20, W/H, 0.5, 8000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+				
+				geometry = new THREE.TorusGeometry(98.07, 120.22, 40, 17, 12.57);
+				material = new THREE.MeshNormalMaterial;
+				mesh = new THREE.Mesh(geometry, material);
+				mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.5;
+				mesh.position.y = 0;
+				mesh.rotation.x = 0;
+				mesh.rotation.y = 2.38;
+				mesh.rotation.z = 0;
+				scene.add(mesh);
+				bg = document.body.style;
+				bg.background = '#2c6a78';
+				
+				scene.fog = new THREE.Fog( 0x000000, 993.55, 1 );
+				
+				// paste your code from the geometryGUI here
+
+
+			}
+
+			function draw() {
+
+				requestAnimationFrame( draw );
+				mesh.rotation.x = Date.now() * 0.0004;	
+				mesh.rotation.y = Date.now() * 0.0002;	
+				mesh.rotation.z = Date.now() * 0.001;
+				
+				 mesh.position.x = Math.sin( Date.now() * 0.001 ) * 50;  
+	mesh.rotation.z = Date.now() * 0.0005;
+				
+				mesh.position.x = Math.sin( Date.now() * 0.001 ) * 50;  
+				mesh.rotation.z = Date.now() * 0.0005;
+				
+				particles.rotation.y = Date.now() * 0.00005;
+				
+				var time = Date.now() * 0.0005;
+				h = ( 360 * ( 1.0 + time ) % 360 ) / 360;
+				material.color.setHSL( h, 0.9, 0.9 );
+				// experiment with code from the snippets menu here
+
+				renderer.render( scene, camera );
+
+			}
+
+			setup();geometry = new THREE.Geometry();
+				for ( i = 0; i < 5000; i ++ ) {
+					var vertex = new THREE.Vector3();
+					vertex.x = 1000 * Math.random() - 500;
+					vertex.y = 1000 * Math.random() - 500;
+					vertex.z = 1000 * Math.random() - 500;
+					geometry.vertices.push( vertex );
+				}
+				material = new THREE.ParticleBasicMaterial( { size: 80, sizeAttenuation: false, transparent: true } );
+				material.color.setHex( 0xff00ff );
+				particles = new THREE.ParticleSystem( geometry, material );
+				particles.sortParticles = true;
+				scene.add( particles );
+			draw();
+
+		</script>
+		<ul>
+			<li><a href="Home/index1.html"></a></li>
+			<li>gubber</li>
+			<li>dubber</li>
+		</ul>
+	</body>
+	<div> class="container"
+	</div>
+</html>
+
+
+</body>
+</html>
